@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf17159102994307" configfile="/av2-projeto-integrador-4/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="370" id="pf17159103136148" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf17159103136149 pf171591031361410" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="listagem_medico.xhtml" x="338" y="178" id="pf171591031361411" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf17159103136149" path="listagem_medico.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="gerar_agendamentos.xhtml" x="338" y="562" id="pf171591031361412" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf171591031361410" path="gerar_agendamentos.xhtml"/>
+  <links id="pf17159103136149" target="pf171591031361411" source="pf17159103136148" outcome="listagem_medico"/>
+  <links id="pf171591031361410" target="pf171591031361412" source="pf17159103136148" outcome="gerar_agendamentos"/>
+</pageflow:Pageflow>

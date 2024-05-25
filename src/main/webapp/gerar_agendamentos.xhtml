@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>gerar agendamento</title>
+</h:head>
+<body>
+	<h:form id="formulario">
+		<p:growl id="msgs" showDetail="true" />
+
+		<p:panel header="cadastro medico">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Digite o seu nome" />
+				<p:inputText value="#{agendaBean.agenda.nomePaciente}" />
+
+				<p:outputLabel value="Digite o seu email" />
+				<p:inputText value="#{agendaBean.agenda.email}" />
+
+				<p:outputLabel value="selecione a clinica" />
+				<p:selectOneRadio value="#{agendaBean.agenda.clinica}">
+					<f:selectItem itemValue="clinica 1" itemLabel="CLÍNICA 1" />
+					<f:selectItem itemValue="clinica 2" itemLabel="CLÍNICA 2" />
+					<f:selectItem itemValue="clinica 3" itemLabel="CLÍNICA 3" />
+				</p:selectOneRadio>
+
+				<p:outputLabel value="Selecione o médico" />
+				<p:selectOneMenu value="#{agendaBean.agenda.medico}">
+					<f:selectItems value="#{medicoBean.medicoSelectItems}" var="medico"
+						itemValue="#{medico.nome}" itemLabel="#{medico.nome}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Selecione a data e hora do agendamento" />
+				<p:datePicker id="dataConsulta" required="true" locale="pt"
+					datePattern="dd/MM/yyyy HH:mm" timeOnly="false" showTime="true"
+					value="#{agendaBean.agenda.dataHoraAgendamento}" />
+
+				<p:commandButton value="salvar" action="#{agendaBean.salvar()}"
+					update="formulario" />
+					
+				<p:button value="lista de agendamentos" outcome="agendamentos"/>
+			</p:panelGrid>
+		</p:panel>
+	</h:form>
+</body>
+</html>
